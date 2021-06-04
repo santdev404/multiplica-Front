@@ -28,6 +28,14 @@ export class ColorService{
         return this._http.get(this.url+'color/'+id,{headers: headers});
     }
 
+    create(token:any, color: Color): Observable<any>{
+        let json = JSON.stringify(color);
+        let params = "json="+json;
+
+        let headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded').set('Authorization',token);
+        return this._http.post(this.url+'color',params,{headers: headers});
+    }
+
 
 
 

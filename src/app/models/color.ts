@@ -4,7 +4,6 @@ export class Color{
         public name: string,
         public color: string,
         public pantone: string,
-        public year: any,
-        public createdAt: any
+        public year: any
     ){}
 }

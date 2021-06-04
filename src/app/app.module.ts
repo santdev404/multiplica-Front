@@ -10,6 +10,7 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { ColorListComponent } from './components/color-list/color-list.component';
 import { ColorDetailComponent } from './components/color-detail/color-detail.component';
+import { ColorNewComponent } from './components/color-new/color-new.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { ColorDetailComponent } from './components/color-detail/color-detail.com
     LoginComponent,
     RegisterComponent,
     ColorListComponent,
-    ColorDetailComponent
+    ColorDetailComponent,
+    ColorNewComponent
   ],
   imports: [
     BrowserModule,

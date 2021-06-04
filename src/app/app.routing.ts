@@ -3,6 +3,7 @@ import {Routes, RouterModule} from '@angular/router';
 
 import { ColorDetailComponent } from './components/color-detail/color-detail.component';
 import { ColorListComponent } from './components/color-list/color-list.component';
+import { ColorNewComponent } from './components/color-new/color-new.component';
 
 
 import {LoginComponent} from './components/login/login.component';
@@ -15,6 +16,7 @@ const appRoutes: Routes = [
     {path: 'registro', component: RegisterComponent},
     {path: 'inicio', component: ColorListComponent},
     {path: 'entrada/:id', component: ColorDetailComponent},
+    {path: 'crear-entrada', component: ColorNewComponent},
     {path: '**', component: LoginComponent}
 ];
 

@@ -1,0 +1,60 @@
+<div class="col-md-12 mt-3">
+    <h1>{{page_title}}</h1>
+    <hr/>
+
+
+    <div class="alert alert-success col-md-5" *ngIf="status == 'success'">
+        Datos guardados correctamente
+
+    </div>
+
+    <div class="alert alert-danger col-md-5" *ngIf="status == 'error'">
+        Los datos no se han guardado
+
+    </div>
+
+    <!--Formulario de post-->
+    <form class="col-md-5 ml-0 pl-0" #colorNew="ngForm" (ngSubmit)="onSubmit(colorNew)">
+
+        <div class="form-group">
+            <label for="name">Nombre</label>
+            <input type="text" name="name" #name="ngModel" [(ngModel)]="newColor.name" class="form-control" required pattern="[a-zA-Z]+">
+            <small *ngIf="!name.valid && name.touched" class="invalid-feedback d-block">
+                El nombre no es valido
+            </small>
+
+        </div>
+
+        <div class="form-group">
+            <label for="color">Color</label>
+            <input type="text" name="color" #color="ngModel" [(ngModel)]="newColor.color" class="form-control" required >
+            <small *ngIf="!color.valid && color.touched" class="invalid-feedback d-block">
+                El color no es valido
+            </small>
+
+        </div>
+
+        <div class="form-group">
+            <label for="pantone">Pantone</label>
+            <input type="text" name="pantone" #pantone="ngModel" [(ngModel)]="newColor.pantone" class="form-control" required >
+            <small *ngIf="!pantone.valid && pantone.touched" class="invalid-feedback d-block">
+                El pantone no es valido
+            </small>
+
+        </div>
+
+        <div class="form-group">
+            <label for="year">Year</label>
+            <input type="text" name="year" #year="ngModel" [(ngModel)]="newColor.year" class="form-control" required pattern="[0-9]+">
+            <small *ngIf="!year.valid && year.touched" class="invalid-feedback d-block">
+                El year no es valido
+            </small>
+
+        </div>
+
+        <input type="submit" class="btn btn-success" [disabled]="colorNew.invalid">
+
+    </form>
+
+    <br/>
+</div>
