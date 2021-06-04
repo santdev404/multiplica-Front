@@ -6,12 +6,11 @@ import { ColorService} from '../../services/color.service';
 import { global} from '../../services/global';
 
 @Component({
-  selector: 'app-color-new',
-  templateUrl: './color-new.component.html',
-  styleUrls: ['./color-new.component.css'],
+  selector: 'app-color-edit',
+  templateUrl: '../color-new/color-new.component.html',
   providers: [UserService,ColorService]
 })
-export class ColorNewComponent implements OnInit {
+export class ColorEditComponent implements OnInit {
 
   public page_title: any;
   public identity: any;
@@ -21,44 +20,68 @@ export class ColorNewComponent implements OnInit {
   public status: any;
   public is_edit: any;
 
-
   constructor(
     private _route: ActivatedRoute,
     private _router: Router,
     private _userService: UserService,
-    private _colorService: ColorService) { 
+    private _colorService: ColorService
+  ) {
 
-      this.page_title = "Color new";
-      this.identity = this._userService.getIdentity();
-      this.token = this._userService.getToken(); 
+    this.page_title = "Color new";
+    this.identity = this._userService.getIdentity();
+    this.token = this._userService.getToken(); 
+    this.newColor = new Color(1,'','','','');
+    this.is_edit = true;
 
-      this.newColor = new Color(1,'','','','');
-      this.is_edit = false;
-    }
+   }
 
   ngOnInit(): void {
-    if(this.identity.email == undefined){
+
+    if(this.identity.email != undefined){
+      this.getColor();
+    }else{
       this._router.navigate(['login']);
     }
   }
 
   onSubmit(form:any){
-    console.log(this.newColor);
-    this._colorService.create(this.token, this.newColor).subscribe(
+
+    this._colorService.update(this.token, this.newColor, this.newColor.id).subscribe(
       response => {
         if(response.status == 'success'){
-          this.newColor = response.color;
+ 
           this.status = 'success';
           this._router.navigate(['/inicio']);
         }else{
           this.status = 'error';
         }
       }, error =>{
-        console.log(error);
+
         this.status = 'error';
       }
     );
     
+  }
+
+  getColor(){
+
+    this._route.params.subscribe(params=>{
+      let id = +params['id'];
+
+      this._colorService.getColor(this.token,id).subscribe(
+        response => {
+          if(response.status == 'success'){
+            this.newColor = response.color;
+            this.status = response.status;
+            this.page_title = response.color.name;
+          }
+        }, error => {
+          console.log(error);
+        }
+      );
+  
+    });
+
   }
 
 }

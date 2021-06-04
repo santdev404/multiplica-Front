@@ -3,10 +3,14 @@
     <hr/>
 
 
-    <div class="alert alert-success col-md-5" *ngIf="status == 'success'">
-        Datos guardados correctamente
+    <p *ngIf="!is_edit">
+        Añade un nuevo color
+    </p>
 
-    </div>
+    <p *ngIf="is_edit">
+        Edita el color
+    </p>
+    <hr/>
 
     <div class="alert alert-danger col-md-5" *ngIf="status == 'error'">
         Los datos no se han guardado

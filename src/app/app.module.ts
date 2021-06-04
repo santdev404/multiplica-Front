@@ -11,6 +11,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { ColorListComponent } from './components/color-list/color-list.component';
 import { ColorDetailComponent } from './components/color-detail/color-detail.component';
 import { ColorNewComponent } from './components/color-new/color-new.component';
+import { ColorEditComponent } from './components/color-edit/color-edit.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { ColorNewComponent } from './components/color-new/color-new.component';
     RegisterComponent,
     ColorListComponent,
     ColorDetailComponent,
-    ColorNewComponent
+    ColorNewComponent,
+    ColorEditComponent
   ],
   imports: [
     BrowserModule,
