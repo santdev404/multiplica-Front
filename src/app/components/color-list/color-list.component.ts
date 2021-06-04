@@ -56,4 +56,14 @@ export class ColorListComponent implements OnInit {
     );
   }
 
+  deleteColor(id:any){
+    this._colorService.delete(this.token, id).subscribe(
+      response => {
+        this.getColors();
+      }, error =>{
+        console.log(error);
+      }
+    );
+  }
+
 }

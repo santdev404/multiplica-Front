@@ -46,6 +46,13 @@ export class ColorService{
     }
 
 
+    delete(token:any, id:any):Observable<any>{
+        let headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded').set('Authorization',token);
+        return this._http.delete(this.url+'color/'+id,{headers: headers});
+
+    }
+
+
 
 
 

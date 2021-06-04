@@ -28,7 +28,7 @@
 
                     <a [routerLink]="['/entrada', color.id]" class="btn btn-success mr-2">Leer</a>
                     <a [routerLink]="['/editar-entrada', color.id]" class="btn btn-warning mr-2">Editar</a>
-                    <a [routerLink]="['/entrada', color.id]" class="btn btn-danger">Borrar</a>
+                    <a (click)="deleteColor(color.id)" class="btn btn-danger">Borrar</a>
 
                 </div>
                 

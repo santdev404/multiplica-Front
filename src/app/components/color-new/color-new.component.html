@@ -22,7 +22,7 @@
 
         <div class="form-group">
             <label for="name">Nombre</label>
-            <input type="text" name="name" #name="ngModel" [(ngModel)]="newColor.name" class="form-control" required pattern="[a-zA-Z]+">
+            <input type="text" name="name" #name="ngModel" [(ngModel)]="newColor.name" class="form-control" required >
             <small *ngIf="!name.valid && name.touched" class="invalid-feedback d-block">
                 El nombre no es valido
             </small>
