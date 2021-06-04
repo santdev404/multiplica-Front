@@ -23,6 +23,11 @@ export class ColorService{
         return this._http.get(this.url+'color',{headers: headers});
     }
 
+    getColor(token:any, id:any):Observable<any>{
+        let headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded').set('Authorization',token);
+        return this._http.get(this.url+'color/'+id,{headers: headers});
+    }
+
 
 
 

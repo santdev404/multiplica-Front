@@ -1,6 +1,7 @@
 import {ModuleWithProviders} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
 
+import { ColorDetailComponent } from './components/color-detail/color-detail.component';
 import { ColorListComponent } from './components/color-list/color-list.component';
 
 
@@ -13,6 +14,7 @@ const appRoutes: Routes = [
     {path: 'logout/:sure', component: LoginComponent},
     {path: 'registro', component: RegisterComponent},
     {path: 'inicio', component: ColorListComponent},
+    {path: 'entrada/:id', component: ColorDetailComponent},
     {path: '**', component: LoginComponent}
 ];
 
