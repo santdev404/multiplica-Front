@@ -49,10 +49,6 @@ export class LoginComponent implements OnInit {
             response => {
               
                this.identity = response;
-               console.log(this.token);
-               console.log(this.identity);
-
-              
                localStorage.setItem('token', this.token);
                localStorage.setItem('identity', JSON.stringify(this.identity)); 
 
@@ -93,7 +89,7 @@ export class LoginComponent implements OnInit {
         this.identity = null;
         this.token = null;
 
-        this._router.navigate(['inicio']);
+        this._router.navigate(['login']);
 
       }
     });
