@@ -1,6 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
 
 
+.colorHover{
+    text-decoration: none !important;
+}
+
 #color-box{
     color: black;
     text-decoration: none;
@@ -27,3 +31,9 @@
     margin-left: 80px;
     padding-left: 150px;
 }
+
+
+.text-shadow{
+    text-shadow: 1px 1px black; 
+}
+

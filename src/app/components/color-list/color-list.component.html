@@ -7,7 +7,7 @@
     <hr/>
 
     <div class="card-columns">
-        <article class="card w-100" *ngFor="let color of colors | paginate : {
+        <article class="card w-100 shadow-sm" *ngFor="let color of colors | paginate : {
                                     itemsPerPage: tableSize,
                                     currentPage: page,
                                     totalItems: count
@@ -16,14 +16,14 @@
             
             <div id="color-card" class="card-body" [ngStyle]="{'background-color': color.color}">
 
-                <a [routerLink]="['/entrada', color.id]">
+                <a class="colorHover" [routerLink]="['/entrada', color.id]" >
                     <div id="color-box" >
                         
-                            <ul >
-                                <li>{{color.year}}</li>
-                                <li class="color-name"><p>{{color.name}}</p></li>
-                                <li class="color-color"><p>{{color.color}}</p></li>
-                                <li class="color-pantone"><p>{{color.pantone}}</p></li>
+                            <ul  class="text-white ">
+                                <li class="text-shadow">{{color.year}}</li>
+                                <li class="text-shadow color-name"><p><b>{{color.name}}</b></p></li>
+                                <li class="text-shadow color-color"><p><b>{{color.color}}</b></p></li>
+                                <li class="text-shadow color-pantone"><p>{{color.pantone}}</p></li>
                             </ul>
                         
                     </div>
@@ -33,10 +33,10 @@
 
             </div>
 
-            <div class="mt-3">
+            <div class="m-1 w-100 text-center">
                 <a [routerLink]="['/entrada', color.id]" class="btn btn-primary mr-2">Leer</a>
                 <a [routerLink]="['/editar-entrada', color.id]" class="btn btn-info mr-2" *ngIf=" role == 'ROLE_ADMIN'">Editar</a>
-                <a (click)="deleteColor(color.id)" class="btn btn-danger" *ngIf=" role == 'ROLE_ADMIN'">Borrar</a> 
+                <a (click)="deleteColor(color.id)" class="btn btn-danger text-white" *ngIf=" role == 'ROLE_ADMIN'">Borrar</a> 
             </div>
             
         </article>
@@ -47,8 +47,8 @@
 
     <div class="d-flex justify-content-center">
         <pagination-controls 
-          previousLabel="Prev" 
-          nextLabel="Next" 
+          previousLabel="Atrás" 
+          nextLabel="Siguiente" 
           (pageChange)="onTableDataChange($event)">
         </pagination-controls>
       </div>
