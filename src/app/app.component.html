@@ -14,7 +14,7 @@
           <a class="nav-link" [routerLink]="['/inicio']" >Inicio <span class="sr-only">(current)</span></a>
         </li>
 
-        <li class="nav-item active" *ngIf="identity && identity.email">
+        <li class="nav-item active" *ngIf="identity && identity.email && role == 'ROLE_ADMIN'">
           <a class="nav-link" [routerLink]="['/crear-entrada']" >Agregar color</a>
         </li>
         

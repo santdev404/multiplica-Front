@@ -13,6 +13,7 @@ export class AppComponent implements OnInit, DoCheck{
   public identity: any;
   public token: any;
   public url: any;
+  public role:any;
 
   constructor(
     private _userService: UserService,
@@ -21,6 +22,8 @@ export class AppComponent implements OnInit, DoCheck{
     this.identity = this._userService.getIdentity();
     this.token = this._userService.getToken();
     this.url = global.url;
+    this.role = this._userService.getRole();
+    
   }
 
   ngOnInit(){
@@ -35,6 +38,7 @@ export class AppComponent implements OnInit, DoCheck{
   loadUser(){
     this.identity = this._userService.getIdentity();
     this.token = this._userService.getToken();
+    this.role = this._userService.getRole();
   }
 
 

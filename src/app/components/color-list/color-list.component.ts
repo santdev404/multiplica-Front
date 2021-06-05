@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, DoCheck } from '@angular/core';
 import { Router, ActivatedRoute, Params} from '@angular/router';
 import { UserService } from '../../services/user.service';
 import { Color } from '../../models/color';
@@ -18,6 +18,7 @@ export class ColorListComponent implements OnInit {
   public identity: any;
   public token: any;
   public colors: any;
+  public role: any;
 
   public status: any;
 
@@ -30,6 +31,8 @@ export class ColorListComponent implements OnInit {
     this.page_title = "Colors";
     this.identity = this._userService.getIdentity();
     this.token = this._userService.getToken();
+    
+
   }
 
   ngOnInit(): void {
@@ -41,6 +44,11 @@ export class ColorListComponent implements OnInit {
 
     
   }
+
+  ngDoCheck(){
+    this.role = this._userService.getRole();
+  }
+
 
 
   getColors(){

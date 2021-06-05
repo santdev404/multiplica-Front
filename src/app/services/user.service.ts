@@ -10,6 +10,7 @@ export class UserService{
     public url: string;
     public indentity:any;
     public token:any;
+    public role:any;
 
     constructor(
         public _http: HttpClient
@@ -68,6 +69,26 @@ export class UserService{
 
         return this.token;
 
+    }
+
+    getRole(){
+
+        let role = localStorage.getItem('role');
+
+        if(role && role != "undefined"){
+            this.role = role;
+        }else{
+            this.role = null;
+        }
+
+        return this.role;
+
+    }
+
+    
+    getUserDetail(id:any):Observable<any>{
+        let headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded');
+        return this._http.get(this.url+'user/detail/'+id,{headers: headers});
     }
 
 

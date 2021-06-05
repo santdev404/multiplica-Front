@@ -19,6 +19,7 @@ export class LoginComponent implements OnInit {
 
   public token:any;
   public identity:any;
+  public userRole:any;
 
   constructor(
     private _userService: UserService,
@@ -43,20 +44,22 @@ export class LoginComponent implements OnInit {
         if(response.status != 'error'){
           this.status = 'success';
           this.token = response;
-
           
           this._userService.signUp(this.user, this.isToken).subscribe(
             response => {
-              
+
+              this._userService.getUserDetail(response.sub).subscribe(
+                response=>{
+                  localStorage.setItem('role', response.user.role);
+                }
+              );
+
                this.identity = response;
                localStorage.setItem('token', this.token);
                localStorage.setItem('identity', JSON.stringify(this.identity)); 
 
-
-              
               this._router.navigate(['inicio']);
 
- 
             },
             error => {
               this.status = "error";
@@ -85,6 +88,7 @@ export class LoginComponent implements OnInit {
       if(logout == 1){
         localStorage.removeItem('identity');
         localStorage.removeItem('token');
+        localStorage.removeItem('role');
 
         this.identity = null;
         this.token = null;
