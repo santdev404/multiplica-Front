@@ -4,6 +4,8 @@ import { routing, appRoutingProviders} from './app.routing';
 import { FormsModule } from '@angular/forms';
 import {  HttpClientModule } from '@angular/common/http';
 
+import {NgxPaginationModule} from 'ngx-pagination';
+
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
@@ -27,7 +29,8 @@ import { ColorEditComponent } from './components/color-edit/color-edit.component
     BrowserModule,
     routing,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxPaginationModule,
 
   ],
   providers: [appRoutingProviders],

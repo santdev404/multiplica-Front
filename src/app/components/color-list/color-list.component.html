@@ -5,8 +5,14 @@
 <div class="container-fluid mt-3" *ngIf="colors">
     <h1>{{page_title}}</h1>
     <hr/>
+
     <div class="card-columns">
-        <article class="card w-100" *ngFor="let color of colors">
+        <article class="card w-100" *ngFor="let color of colors | paginate : {
+                                    itemsPerPage: tableSize,
+                                    currentPage: page,
+                                    totalItems: count
+                                };
+                            let i = index" >
             <div class="card-header">
                 <h3>
                     <a >{{color.name}}</a>
@@ -32,15 +38,22 @@
                         <a (click)="deleteColor(color.id)" class="btn btn-danger" *ngIf=" role == 'ROLE_ADMIN'">Borrar</a>
                     
                 </div>
-                
-                
-
-                
 
             </div>
             
         </article>
+
+
+
     </div>
+
+    <div class="d-flex justify-content-center">
+        <pagination-controls 
+          previousLabel="Prev" 
+          nextLabel="Next" 
+          (pageChange)="onTableDataChange($event)">
+        </pagination-controls>
+      </div>
 
 </div>
 

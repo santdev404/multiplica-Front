@@ -22,6 +22,13 @@ export class ColorListComponent implements OnInit {
 
   public status: any;
 
+  page = 1;
+  count = 0;
+  tableSize = 6;
+
+
+
+
   constructor(
     private _route: ActivatedRoute,
     private _router: Router,
@@ -31,9 +38,10 @@ export class ColorListComponent implements OnInit {
     this.page_title = "Colors";
     this.identity = this._userService.getIdentity();
     this.token = this._userService.getToken();
-    
 
   }
+
+
 
   ngOnInit(): void {
     if(this.identity.email != undefined){
@@ -44,6 +52,13 @@ export class ColorListComponent implements OnInit {
 
     
   }
+
+
+  onTableDataChange(event:any){
+    this.page = event;
+    this.getColors();
+  }  
+
 
   ngDoCheck(){
     this.role = this._userService.getRole();
