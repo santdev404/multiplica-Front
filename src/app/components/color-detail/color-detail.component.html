@@ -6,23 +6,22 @@
     <h1>{{page_title}}</h1>
     <hr/>
     <div class="card-columns">
-        <article class="card w-100">
-            <div class="card-header">
-                <h3>
-                    <a >{{color.name}}</a>
-                </h3>
-            </div>
+        <article class="card w-100" [ngStyle]="{'background-color': color.color}">
+
             <div class="card-body">
 
-                <div>
+                <div id="color-box"> 
                     
-                        <ul>
-                            <li><p>{{color.color}}</p></li>
-                            <li><p>{{color.pantone}}</p></li>
-                            <li><p>{{color.year}}</p></li>
-                        </ul>
+                    <ul >
+                        <li>{{color.year}}</li>
+                        <li class="color-name"><p>{{color.name}}</p></li>
+                        <li class="color-color"><p>{{color.color}}</p></li>
+                        <li class="color-pantone"><p>{{color.pantone}}</p></li>
+                    </ul>
                     
                 </div>
+
+
 
             </div>
             

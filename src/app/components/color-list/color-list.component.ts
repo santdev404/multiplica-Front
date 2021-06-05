@@ -35,7 +35,7 @@ export class ColorListComponent implements OnInit {
     private _userService: UserService,
     private _colorService: ColorService
   ) { 
-    this.page_title = "Colors";
+    this.page_title = "Colores";
     this.identity = this._userService.getIdentity();
     this.token = this._userService.getToken();
 
