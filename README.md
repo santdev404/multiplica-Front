@@ -39,7 +39,7 @@ Below are the instructions to setup all the tools and config all the requires an
 I strongly recommend to perform all the installations on a machine with Ubuntu 20.0 operational system.
 
 ## Angular
-Please follow the below instrution to setup the PHP enviroment:
+Please follow the below instrution to setup the Angular enviroment:
 
 > Once the PHP installation steps are finished clone the `https://github.com/santdev404/multiplica-Front` inside `/var/www/html/projects/` directory.
 
